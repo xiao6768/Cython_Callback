@@ -3,8 +3,10 @@
 from PyCallback import *
 
 def func(n):
-    return n * 2;
+    print (n)
 
 cb = PyCallback(func)
-print (cb.execute(5.0))
+a = "5.0"
+b = a.encode(encoding="utf-8")
+cb.execute(b)
 

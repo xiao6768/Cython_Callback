@@ -1,19 +1,21 @@
 
 from cython.operator cimport dereference as deref
+from libcpp.string cimport string
+
 import sys
 # referenced from
 # http://stackoverflow.com/questions/5242051/cython-implementing-callbacks
 
-ctypedef double (*method_type)(void *param, void *user_data)
+ctypedef void (*method_type)(string param, void *user_data)
 
 
 cdef extern from "backend.hpp":
     cdef cppclass Callback:
         Callback(method_type py_callback_template, void *user_data)
-        double cy_execute(void *parameter)
+        void cy_execute(string parameter)
 
-cdef double py_callback_template(void *parameter, void *py_method_handle):
-    return (<object>py_method_handle)(<object>parameter)
+cdef void py_callback_template(string parameter, void *py_method_handle):
+    (<object>py_method_handle)(parameter)
 
 
 cdef class PyCallback:
@@ -26,6 +28,6 @@ cdef class PyCallback:
         if self.thisptr:
             del self.thisptr
 
-    cpdef double execute(self, parameter):
-        return self.thisptr.cy_execute(<void*>parameter)
+    cpdef void execute(self, parameter):
+        self.thisptr.cy_execute(parameter)
 

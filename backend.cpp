@@ -11,7 +11,7 @@ Callback::Callback(method_type method, void *user_func)
 Callback::~Callback()
 {}
 
-double Callback::cy_execute(void *parameter)
+void Callback::cy_execute(std::string parameter)
 {
-    return this->method_(parameter, user_func_);
+    this->method_(parameter, user_func_);
 }
