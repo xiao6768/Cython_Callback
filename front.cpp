@@ -1137,7 +1137,7 @@ static double __pyx_f_10PyCallback_10PyCallback_execute(struct __pyx_obj_10PyCal
 
 /* Module declarations from 'PyCallback' */
 static PyTypeObject *__pyx_ptype_10PyCallback_PyCallback = 0;
-static double __pyx_f_10PyCallback_callback_template(void *, void *); /*proto*/
+static double __pyx_f_10PyCallback_py_callback_template(void *, void *); /*proto*/
 #define __Pyx_MODULE_NAME "PyCallback"
 extern int __pyx_module_is_main_PyCallback;
 int __pyx_module_is_main_PyCallback = 0;
@@ -1149,7 +1149,6 @@ static const char __pyx_k_main[] = "__main__";
 static const char __pyx_k_name[] = "__name__";
 static const char __pyx_k_test[] = "__test__";
 static const char __pyx_k_import[] = "__import__";
-static const char __pyx_k_method[] = "method";
 static const char __pyx_k_reduce[] = "__reduce__";
 static const char __pyx_k_execute[] = "execute";
 static const char __pyx_k_getstate[] = "__getstate__";
@@ -1160,6 +1159,7 @@ static const char __pyx_k_PyCallback[] = "PyCallback";
 static const char __pyx_k_pyx_vtable[] = "__pyx_vtable__";
 static const char __pyx_k_reduce_cython[] = "__reduce_cython__";
 static const char __pyx_k_setstate_cython[] = "__setstate_cython__";
+static const char __pyx_k_py_method_handle[] = "py_method_handle";
 static const char __pyx_k_cline_in_traceback[] = "cline_in_traceback";
 static const char __pyx_k_no_default___reduce___due_to_non[] = "no default __reduce__ due to non-trivial __cinit__";
 static PyObject *__pyx_n_s_PyCallback;
@@ -1169,9 +1169,9 @@ static PyObject *__pyx_n_s_execute;
 static PyObject *__pyx_n_s_getstate;
 static PyObject *__pyx_n_s_import;
 static PyObject *__pyx_n_s_main;
-static PyObject *__pyx_n_s_method;
 static PyObject *__pyx_n_s_name;
 static PyObject *__pyx_kp_s_no_default___reduce___due_to_non;
+static PyObject *__pyx_n_s_py_method_handle;
 static PyObject *__pyx_n_s_pyx_vtable;
 static PyObject *__pyx_n_s_reduce;
 static PyObject *__pyx_n_s_reduce_cython;
@@ -1180,7 +1180,7 @@ static PyObject *__pyx_n_s_setstate;
 static PyObject *__pyx_n_s_setstate_cython;
 static PyObject *__pyx_n_s_sys;
 static PyObject *__pyx_n_s_test;
-static int __pyx_pf_10PyCallback_10PyCallback___cinit__(struct __pyx_obj_10PyCallback_PyCallback *__pyx_v_self, PyObject *__pyx_v_method); /* proto */
+static int __pyx_pf_10PyCallback_10PyCallback___cinit__(struct __pyx_obj_10PyCallback_PyCallback *__pyx_v_self, PyObject *__pyx_v_py_method_handle); /* proto */
 static void __pyx_pf_10PyCallback_10PyCallback_2__dealloc__(struct __pyx_obj_10PyCallback_PyCallback *__pyx_v_self); /* proto */
 static PyObject *__pyx_pf_10PyCallback_10PyCallback_4execute(struct __pyx_obj_10PyCallback_PyCallback *__pyx_v_self, PyObject *__pyx_v_parameter); /* proto */
 static PyObject *__pyx_pf_10PyCallback_10PyCallback_6__reduce_cython__(CYTHON_UNUSED struct __pyx_obj_10PyCallback_PyCallback *__pyx_v_self); /* proto */
@@ -1193,29 +1193,29 @@ static PyObject *__pyx_tuple__2;
 /* "front.pyx":15
  *         double cy_execute(void *parameter)
  * 
- * cdef double callback_template(void *parameter, void *method):             # <<<<<<<<<<<<<<
- *     return (<object>method)(<object>parameter)
+ * cdef double py_callback_template(void *parameter, void *py_method_handle):             # <<<<<<<<<<<<<<
+ *     return (<object>py_method_handle)(<object>parameter)
  * 
  */
 
-static double __pyx_f_10PyCallback_callback_template(void *__pyx_v_parameter, void *__pyx_v_method) {
+static double __pyx_f_10PyCallback_py_callback_template(void *__pyx_v_parameter, void *__pyx_v_py_method_handle) {
   double __pyx_r;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
   PyObject *__pyx_t_2 = NULL;
   PyObject *__pyx_t_3 = NULL;
   double __pyx_t_4;
-  __Pyx_RefNannySetupContext("callback_template", 0);
+  __Pyx_RefNannySetupContext("py_callback_template", 0);
 
   /* "front.pyx":16
  * 
- * cdef double callback_template(void *parameter, void *method):
- *     return (<object>method)(<object>parameter)             # <<<<<<<<<<<<<<
+ * cdef double py_callback_template(void *parameter, void *py_method_handle):
+ *     return (<object>py_method_handle)(<object>parameter)             # <<<<<<<<<<<<<<
  * 
  * 
  */
-  __Pyx_INCREF(((PyObject *)__pyx_v_method));
-  __pyx_t_2 = ((PyObject *)__pyx_v_method); __pyx_t_3 = NULL;
+  __Pyx_INCREF(((PyObject *)__pyx_v_py_method_handle));
+  __pyx_t_2 = ((PyObject *)__pyx_v_py_method_handle); __pyx_t_3 = NULL;
   if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_2))) {
     __pyx_t_3 = PyMethod_GET_SELF(__pyx_t_2);
     if (likely(__pyx_t_3)) {
@@ -1238,8 +1238,8 @@ static double __pyx_f_10PyCallback_callback_template(void *__pyx_v_parameter, vo
   /* "front.pyx":15
  *         double cy_execute(void *parameter)
  * 
- * cdef double callback_template(void *parameter, void *method):             # <<<<<<<<<<<<<<
- *     return (<object>method)(<object>parameter)
+ * cdef double py_callback_template(void *parameter, void *py_method_handle):             # <<<<<<<<<<<<<<
+ *     return (<object>py_method_handle)(<object>parameter)
  * 
  */
 
@@ -1248,7 +1248,7 @@ static double __pyx_f_10PyCallback_callback_template(void *__pyx_v_parameter, vo
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3);
-  __Pyx_WriteUnraisable("PyCallback.callback_template", __pyx_clineno, __pyx_lineno, __pyx_filename, 1, 0);
+  __Pyx_WriteUnraisable("PyCallback.py_callback_template", __pyx_clineno, __pyx_lineno, __pyx_filename, 1, 0);
   __pyx_r = 0;
   __pyx_L0:;
   __Pyx_RefNannyFinishContext();
@@ -1258,20 +1258,20 @@ static double __pyx_f_10PyCallback_callback_template(void *__pyx_v_parameter, vo
 /* "front.pyx":22
  *     cdef Callback *thisptr
  * 
- *     def __cinit__(self, method):             # <<<<<<<<<<<<<<
- *         self.thisptr = new Callback(callback_template, <void*>method)
+ *     def __cinit__(self, py_method_handle):             # <<<<<<<<<<<<<<
+ *         self.thisptr = new Callback(py_callback_template, <void*>py_method_handle)
  * 
  */
 
 /* Python wrapper */
 static int __pyx_pw_10PyCallback_10PyCallback_1__cinit__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
 static int __pyx_pw_10PyCallback_10PyCallback_1__cinit__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
-  PyObject *__pyx_v_method = 0;
+  PyObject *__pyx_v_py_method_handle = 0;
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__cinit__ (wrapper)", 0);
   {
-    static PyObject **__pyx_pyargnames[] = {&__pyx_n_s_method,0};
+    static PyObject **__pyx_pyargnames[] = {&__pyx_n_s_py_method_handle,0};
     PyObject* values[1] = {0};
     if (unlikely(__pyx_kwds)) {
       Py_ssize_t kw_args;
@@ -1285,7 +1285,7 @@ static int __pyx_pw_10PyCallback_10PyCallback_1__cinit__(PyObject *__pyx_v_self,
       kw_args = PyDict_Size(__pyx_kwds);
       switch (pos_args) {
         case  0:
-        if (likely((values[0] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_method)) != 0)) kw_args--;
+        if (likely((values[0] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_py_method_handle)) != 0)) kw_args--;
         else goto __pyx_L5_argtuple_error;
       }
       if (unlikely(kw_args > 0)) {
@@ -1296,7 +1296,7 @@ static int __pyx_pw_10PyCallback_10PyCallback_1__cinit__(PyObject *__pyx_v_self,
     } else {
       values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
     }
-    __pyx_v_method = values[0];
+    __pyx_v_py_method_handle = values[0];
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
@@ -1306,32 +1306,32 @@ static int __pyx_pw_10PyCallback_10PyCallback_1__cinit__(PyObject *__pyx_v_self,
   __Pyx_RefNannyFinishContext();
   return -1;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_10PyCallback_10PyCallback___cinit__(((struct __pyx_obj_10PyCallback_PyCallback *)__pyx_v_self), __pyx_v_method);
+  __pyx_r = __pyx_pf_10PyCallback_10PyCallback___cinit__(((struct __pyx_obj_10PyCallback_PyCallback *)__pyx_v_self), __pyx_v_py_method_handle);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static int __pyx_pf_10PyCallback_10PyCallback___cinit__(struct __pyx_obj_10PyCallback_PyCallback *__pyx_v_self, PyObject *__pyx_v_method) {
+static int __pyx_pf_10PyCallback_10PyCallback___cinit__(struct __pyx_obj_10PyCallback_PyCallback *__pyx_v_self, PyObject *__pyx_v_py_method_handle) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__cinit__", 0);
 
   /* "front.pyx":23
  * 
- *     def __cinit__(self, method):
- *         self.thisptr = new Callback(callback_template, <void*>method)             # <<<<<<<<<<<<<<
+ *     def __cinit__(self, py_method_handle):
+ *         self.thisptr = new Callback(py_callback_template, <void*>py_method_handle)             # <<<<<<<<<<<<<<
  * 
  *     def __dealloc__(self):
  */
-  __pyx_v_self->thisptr = new Callback(__pyx_f_10PyCallback_callback_template, ((void *)__pyx_v_method));
+  __pyx_v_self->thisptr = new Callback(__pyx_f_10PyCallback_py_callback_template, ((void *)__pyx_v_py_method_handle));
 
   /* "front.pyx":22
  *     cdef Callback *thisptr
  * 
- *     def __cinit__(self, method):             # <<<<<<<<<<<<<<
- *         self.thisptr = new Callback(callback_template, <void*>method)
+ *     def __cinit__(self, py_method_handle):             # <<<<<<<<<<<<<<
+ *         self.thisptr = new Callback(py_callback_template, <void*>py_method_handle)
  * 
  */
 
@@ -1342,7 +1342,7 @@ static int __pyx_pf_10PyCallback_10PyCallback___cinit__(struct __pyx_obj_10PyCal
 }
 
 /* "front.pyx":25
- *         self.thisptr = new Callback(callback_template, <void*>method)
+ *         self.thisptr = new Callback(py_callback_template, <void*>py_method_handle)
  * 
  *     def __dealloc__(self):             # <<<<<<<<<<<<<<
  *         if self.thisptr:
@@ -1394,7 +1394,7 @@ static void __pyx_pf_10PyCallback_10PyCallback_2__dealloc__(struct __pyx_obj_10P
   }
 
   /* "front.pyx":25
- *         self.thisptr = new Callback(callback_template, <void*>method)
+ *         self.thisptr = new Callback(py_callback_template, <void*>py_method_handle)
  * 
  *     def __dealloc__(self):             # <<<<<<<<<<<<<<
  *         if self.thisptr:
@@ -1808,9 +1808,9 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_getstate, __pyx_k_getstate, sizeof(__pyx_k_getstate), 0, 0, 1, 1},
   {&__pyx_n_s_import, __pyx_k_import, sizeof(__pyx_k_import), 0, 0, 1, 1},
   {&__pyx_n_s_main, __pyx_k_main, sizeof(__pyx_k_main), 0, 0, 1, 1},
-  {&__pyx_n_s_method, __pyx_k_method, sizeof(__pyx_k_method), 0, 0, 1, 1},
   {&__pyx_n_s_name, __pyx_k_name, sizeof(__pyx_k_name), 0, 0, 1, 1},
   {&__pyx_kp_s_no_default___reduce___due_to_non, __pyx_k_no_default___reduce___due_to_non, sizeof(__pyx_k_no_default___reduce___due_to_non), 0, 0, 1, 0},
+  {&__pyx_n_s_py_method_handle, __pyx_k_py_method_handle, sizeof(__pyx_k_py_method_handle), 0, 0, 1, 1},
   {&__pyx_n_s_pyx_vtable, __pyx_k_pyx_vtable, sizeof(__pyx_k_pyx_vtable), 0, 0, 1, 1},
   {&__pyx_n_s_reduce, __pyx_k_reduce, sizeof(__pyx_k_reduce), 0, 0, 1, 1},
   {&__pyx_n_s_reduce_cython, __pyx_k_reduce_cython, sizeof(__pyx_k_reduce_cython), 0, 0, 1, 1},
