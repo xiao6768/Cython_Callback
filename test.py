@@ -1,10 +1,10 @@
 
 
-import PyCallback
+from PyCallback import *
 
 def func(n):
     return n * 2;
 
-cb = PyCallback.PyCallback(func)
-print cb.execute(5.0)
+cb = PyCallback(func)
+print (cb.execute(5.0))
 

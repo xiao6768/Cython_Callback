@@ -4,8 +4,8 @@ Callback::Callback()
     :is_cython_call_(true)
 {}
 
-Callback::Callback(method_type method, void *user_data)
-    :is_cython_call_(true), method_(method), user_data_(user_data)
+Callback::Callback(method_type method, void *user_func)
+    :is_cython_call_(true), method_(method), user_func_(user_func)
 {}
 
 Callback::~Callback()
@@ -13,5 +13,5 @@ Callback::~Callback()
 
 double Callback::cy_execute(void *parameter)
 {
-    return this->method_(parameter, user_data_);
+    return this->method_(parameter, user_func_);
 }

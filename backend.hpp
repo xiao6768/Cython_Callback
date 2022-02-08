@@ -6,10 +6,10 @@
 class Callback {
 public:
     // This is wrapper of Python fuction.
-    typedef double (*method_type)(void *param, void *user_data);
+    typedef double (*method_type)(void *param, void *user_func);
 
     Callback();
-    Callback(method_type, void *user_data);
+    Callback(method_type, void *user_func);
     virtual ~Callback();
 
     double cy_execute(void *parameter);
@@ -22,7 +22,7 @@ protected:
     bool is_cython_call_;
 private:
     method_type method_;
-    void *user_data_;
+    void *user_func_;
 };
 
 #endif
